@@ -1,8 +1,9 @@
 import os, strutils
 
-proc gcd(h, v: int): int =
-  var x = h
-  var y = v
+# Get the greatest common divisor
+proc gcd(w, h: int): int =
+  var x = w
+  var y = h
   while y > 0:
     let t = y
     y = x mod y
@@ -10,19 +11,34 @@ proc gcd(h, v: int): int =
 
   x
 
+# Execute the main calculations
 proc main() =
   let params = commandLineParams()
   let tp = params.len
   if tp >= 2:
-    var hor = parseInt(paramStr(1))
-    var ver = parseInt(paramStr(2))
-    let divisor = gcd(hor, ver)
+    var w = parseInt(params[0])
+    var h = parseInt(params[1])
+    let divisor = gcd(w, h)
 
+    # if only 2 parameters were received
     if tp == 2:
-      echo "The ratio is: ", (hor / divisor).toInt, ":", (ver / divisor).toInt
-      echo "The percentage is: ", (ver / hor) * 100, "%"
+      echo "The ratio is: ", (w / divisor).toInt, ":", (h / divisor).toInt
+      echo "The percentage is: ", (h / w) * 100, "%"
+
+    # if 4 parameters were received
+    elif tp == 4:
+      var newValue = parseInt(params[3])
+      case params[2]:
+        of "-w", "--width":
+          echo "The proportional height is: ", ((newValue * h) / w).toInt
+        of "-h", "--height":
+          echo "The proportional height is: ", ((newValue * w) / h).toInt
+        else:
+          echo "The structure is incorrect, please check the docs"
+    else:
+      echo "The structure is incorrect, please check the docs"
   else:
-    echo "not enough parameters"
+    echo "The structure is incorrect, please check the docs"
 
 
 main()
