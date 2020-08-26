@@ -1,15 +1,4 @@
-import os, strutils
-
-# Get the greatest common divisor
-proc gcd(w, h: int): int =
-  var x = w
-  var y = h
-  while y > 0:
-    let t = y
-    y = x mod y
-    x = t
-
-  x
+import os, strutils, math
 
 # Execute the main calculations
 proc main() =
