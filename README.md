@@ -1,5 +1,9 @@
 # 📐 miter
 
+[![Build Status](https://nimble.directory/ci/badges/miter/nimdevel/status.svg)](https://nimble.directory/ci/badges/miter/nimdevel/output.html)
+[![Build Status](https://nimble.directory/ci/badges/miter/nimdevel/docstatus.svg)](https://nimble.directory/ci/badges/miter/nimdevel/doc_build_output.html)
+
+
 ## Instalation
 
 ```
